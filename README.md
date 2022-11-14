@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://clickers331.github.io/fementor-interactive-card-details](https://clickers331.github.io/fementor-interactive-card-details)
+- Solution URL: [https://github.com/clickers331/fementor-interactive-card-details-form-main](https://github.com/clickers331/fementor-interactive-card-details-form-main)
 - Live Site URL: [https://clickers331.github.io/fementor-interactive-card-details](https://clickers331.github.io/fementor-interactive-card-details)
 
 ## My process
