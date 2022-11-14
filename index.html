@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Frontend Mentor | Interactive Card Details Form</title>
+    <script src="./script.js" type="module" defer></script>
+  </head>
+  <body class="font-main flex bg-white">
+    <div class="bg-image"></div>
+    <div class="credit-card credit-card-front text-white" id="card-front">
+      <img src="./images/card-logo.svg" alt="card logo" class="card-logo" />
+      <p class="card-number-display" id="card-number">0000 0000 0000 0000</p>
+      <p class="cardholder-name" id="cardholder-name-display">Jane Appleseed</p>
+      <p class="expiry-date" id="expiry-date">
+        <span style="padding: 0px" id="expiry-date-month">00</span>/<span
+          id="expiry-date-year"
+          style="padding: 0px"
+          >00</span
+        >
+      </p>
+    </div>
+    <div class="credit-card credit-card-back text-white" id="card-back">
+      <p class="cvc" id="cvc">000</p>
+    </div>
+    <div class="container flex flex-center" id="form">
+      <form class="form">
+        <div class="form-element text-darker" style="grid-area: name">
+          <label for="card-name-i">Cardholder Name</label>
+          <input
+            type="text"
+            name="card-name"
+            id="card-name-i"
+            placeholder="e.g. Jane Appleseed"
+          />
+          <p class="form-warning-text">Yessir</p>
+        </div>
+        <div class="form-element text-darker" style="grid-area: number">
+          <label for="card-number">Card Number</label>
+          <input
+            type="text"
+            id="card-number-i"
+            name="card-number"
+            class="card-number"
+            maxlength="19"
+            placeholder="e.g. 1234 5678 9123 0000"
+          />
+          <p class="form-warning-text">Yessir</p>
+        </div>
+        <div class="form-element text-darker" style="grid-area: expiry-date">
+          <label for="expiration-date">exp. date (mm/yy)</label>
+          <div
+            id="expiry-date"
+            class="flex flex-row flex-align-center margin"
+            style="gap: 0.5em"
+          >
+            <div>
+              <input
+                type="number"
+                name="month"
+                id="expiry-date-month-i"
+                placeholder="MM"
+              />
+              <p class="form-warning-text" style="right: 50%"></p>
+            </div>
+
+            <div>
+              <input
+                type="number"
+                name="year"
+                id="expiry-date-year-i"
+                placeholder="YY"
+              />
+              <p class="form-warning-text" style="left: 55%">Yessir</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-element text-darker" style="grid-area: cvc">
+          <label for="cvc-i">CVC</label>
+          <input
+            type="number"
+            id="cvc-i"
+            name="CVC"
+            maxlength="3"
+            placeholder="e.g. 123"
+          />
+          <p class="form-warning-text">Yessir</p>
+        </div>
+
+        <button
+          type="submit"
+          class="font-main bg-darker text-white"
+          style="grid-area: btn"
+          id="confirm-btn"
+        >
+          Confirm
+        </button>
+      </form>
+    </div>
+
+    <!-- 0000 0000 0000 0000
+Jane Appleseed
+00/00
+
+000
+
+Cardholder Name
+e.g. Jane Appleseed
+
+Card Number
+e.g. 1234 5678 9123 0000
+
+Exp. Date (MM/YY)
+MM
+YY
+
+CVC
+e.g. 123
+
+Confirm
+
+-----Completed state start--------
+
+Thank you!
+We've added your card details
+Continue -->
+  </body>
+</html>

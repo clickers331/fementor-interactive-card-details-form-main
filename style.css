@@ -1,0 +1,433 @@
+:root {
+  font-size: 10px;
+
+  --color-white: 0, 0%, 100%;
+  --color-light: 270, 3%, 75%;
+  --color-dark: 279, 6%, 55%;
+  --color-darker: 278, 68%, 11%;
+  --color-red-error: 0, 100%, 66%;
+  --color-input-border-gradient: linear-gradient(
+    hsl(249, 99%, 64%) to hsl(278, 94%, 30%)
+  );
+
+  --font-main: "Space Grotesk", monospace;
+  --card-border-radius: 10px;
+  --font-size-responsive-small: 2.1vw;
+  --font-size-responsive-medium: 4.4vw;
+}
+body {
+  font-size: 1.8rem;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+}
+
+/*-----------------*/
+/* Utility Classes */
+/*-----------------*/
+
+.font-main {
+  font-family: var(--font-main);
+}
+
+/* flex */
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.flex-justify-center {
+  align-items: center;
+}
+
+/* colors */
+
+.border-red-error {
+  border-color: hsl(var(--color-red-error)) !important;
+  border-style: solid !important;
+  border-width: 2px !important;
+}
+
+.bg-dark-mode {
+  background-color: #0000;
+}
+
+.bg-white {
+  background-color: hsl(var(--color-white));
+}
+
+.bg-darker {
+  background-color: hsl(var(--color-darker));
+}
+
+.text-light {
+  color: hsl(var(--color-light));
+}
+
+.text-white {
+  color: hsl(var(--color-white));
+}
+
+.text-darker {
+  color: hsl(var(--color-darker));
+}
+
+.debug-border {
+  border: 2px red solid;
+}
+
+.debug-borders,
+.debug-borders * {
+  border: 2px red solid;
+}
+
+.margin-between-vertical * {
+  margin-bottom: var(--value, 0.5em);
+}
+
+.margin-between-vertical *:last-child {
+  margin-bottom: none;
+}
+
+.margin-between-horizontal * {
+  margin-right: var(--value, 0.5em);
+}
+
+.margin-between-horizontal *:last-child {
+  margin-right: none;
+}
+
+/* ----------------- */
+
+.bg-image {
+  background-image: url("./images/bg-main-mobile.png");
+  width: 100%;
+  height: 40vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  transition-duration: 500ms;
+}
+
+.form {
+  transform: translateY(1.5em);
+  width: 85%;
+  max-width: 400px;
+  display: grid;
+  grid-template:
+    "name     name"
+    "number   number"
+    "expiry-date cvc"
+    "btn      btn";
+  gap: 1.3em 0.5em;
+}
+
+.loading {
+  opacity: 0.5;
+  cursor: wait;
+  pointer-events: none;
+}
+
+button {
+  transition-duration: 200ms;
+  transition-property: transform;
+  font-size: 1.8rem;
+  border: none;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0.75em;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.end-screen {
+  align-items: center;
+  text-align: center;
+  height: 45vh;
+  max-height: 350px;
+
+  width: 85%;
+  max-width: 400px;
+  justify-content: space-between;
+}
+
+.end-screen img {
+  width: 25%;
+}
+
+.end-screen h1 {
+  font-size: 3rem;
+  letter-spacing: 0.2em;
+}
+
+.end-screen p {
+  font-size: 2rem;
+}
+
+.end-screen div * {
+  padding: 0.2em;
+  margin: 0;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.form-element label {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.form-element input::placeholder,
+.form-element input {
+  transition: border 100ms;
+  font-size: 1.7rem;
+  font-family: var(--font-main);
+}
+
+.form-element input::placeholder {
+  color: rgba(109, 109, 109);
+}
+
+.form-element input {
+  border-radius: 7px;
+  border: solid 1px hsl(var(--color-light));
+  box-sizing: border-box;
+  padding: 0.7em 1em;
+  width: 100%;
+}
+
+.form-warning-text {
+  font-size: 1.2rem;
+  color: hsl(var(--color-red-error));
+  transition: 400ms;
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  max-width: 100%;
+}
+
+.show-warning-text {
+  top: 85% !important;
+}
+
+.form-element {
+  width: 100%;
+  margin: 0 auto;
+  isolation: isolate;
+  position: relative;
+}
+
+.credit-card {
+  position: absolute;
+  aspect-ratio: 1.8;
+  width: 70%;
+  max-width: 350px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: -2px 10px 61px 1px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: -2px 10px 61px 1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: -2px 10px 61px 1px rgba(0, 0, 0, 0.15);
+}
+
+.credit-card-front {
+  background: url("./images/bg-card-front.png");
+  background-size: cover;
+  background-position: center;
+  top: 14vh;
+  left: 0;
+  right: 0;
+  transform: translateX(-2em);
+  z-index: 2;
+  display: grid;
+  grid-template:
+    "logo logo" 2fr
+    "number number" 1fr
+    "name expiry-date" 1fr / auto;
+}
+
+.credit-card-front * {
+  padding-left: 2rem;
+}
+
+.card-logo {
+  grid-area: logo;
+  width: 20%;
+  align-self: flex-start;
+  padding-top: 2.5rem;
+}
+
+.card-number-display {
+  grid-area: number;
+  letter-spacing: 0.15em;
+  font-size: clamp(0px, 4vw, 2rem);
+  align-self: flex-end;
+}
+
+.cardholder-name {
+  font-size: clamp(0px, 2.2vw, 1.2rem);
+  align-self: flex-start;
+  margin-top: 0.1em;
+  grid-area: name;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.expiry-date {
+  align-self: flex-start;
+  margin-top: 0.1em;
+  font-size: clamp(0px, 2.2vw, 1.2rem);
+
+  grid-area: expiry-date;
+  justify-self: flex-end;
+  padding: 0;
+  letter-spacing: 0.2em;
+  padding-right: 3rem;
+}
+
+.credit-card-back {
+  top: calc(14vh - 80px);
+  left: 0;
+  right: 0;
+  background: url("./images/bg-card-back.png");
+  background-size: cover;
+  background-position: center;
+  transform: translateX(2em);
+
+  z-index: 1;
+}
+
+.cvc {
+  position: absolute;
+  top: 37%;
+  left: 80%;
+  font-size: clamp(0px, 3vw, 1.5rem);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@media (min-width: 1250px) {
+  :root {
+    font-size: 11px;
+  }
+  .end-screen {
+    height: 35vh;
+  }
+  body {
+    flex-direction: row;
+  }
+  .bg-image {
+    background-image: url("./images/bg-main-desktop.png");
+    width: 50vw;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .credit-card {
+    width: 70vw;
+    max-width: 450px;
+    margin: 0;
+  }
+
+  .credit-card-front * {
+    padding-left: 3rem;
+  }
+
+  .card-logo {
+    grid-area: logo;
+    align-self: flex-start;
+    padding-top: 2.5rem;
+  }
+
+  .card-number-display {
+    grid-area: number;
+    letter-spacing: 0.15em;
+    font-size: 2.5rem;
+    align-self: flex-end;
+  }
+
+  .cardholder-name {
+    align-self: flex-start;
+    margin-top: 0.1em;
+    grid-area: name;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 1.2rem;
+  }
+
+  .expiry-date {
+    align-self: flex-start;
+    margin-top: 0.1em;
+
+    grid-area: expiry-date;
+    font-size: 1.2rem;
+    justify-self: flex-end;
+    padding: 0;
+    letter-spacing: 0.2em;
+    padding-right: 3rem;
+  }
+
+  .credit-card-front {
+    background: url("./images/bg-card-front.png");
+    background-size: cover;
+    background-position: center;
+    top: 20vh;
+    transform: translateX(-2em);
+    left: 10vw;
+    z-index: 2;
+  }
+
+  .credit-card-back {
+    top: 52vh;
+    left: 12vw;
+    background: url("./images/bg-card-back.png");
+    background-size: cover;
+    background-position: center;
+    transform: translateX(2em);
+    z-index: 1;
+  }
+
+  .cvc {
+    position: absolute;
+    top: 37%;
+    left: 80%;
+    font-size: 1.7rem;
+  }
+}
